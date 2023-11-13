@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wallpaper_app/pages/homepage.dart';
+import 'package:wallpaper_app/pages/h.dart';
+import 'package:wallpaper_app/pages/homeScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       themeMode: ThemeMode.system,
-      home: HomePage(),
+      home: HomeScreen(),
     );
   }
 }

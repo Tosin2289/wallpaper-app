@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_wallpaper_manager/flutter_wallpaper_manager.dart';
+import 'package:iconsax/iconsax.dart';
 
 class FullScreen extends StatefulWidget {
   final String imgurl;
@@ -39,80 +40,115 @@ class _FullScreenState extends State<FullScreen> {
   Widget build(BuildContext context) {
     final dark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      body: Column(
+      body: Stack(
         children: [
-          Expanded(
-              child: SizedBox(
-            child: Image.network(
-              widget.imgurl,
-              fit: BoxFit.cover,
+          Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: NetworkImage(widget.imgurl), fit: BoxFit.cover)),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      GestureDetector(
+                        onTap: setWallpaper,
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.5),
+                              borderRadius: BorderRadius.circular(15)),
+                          child: const Center(
+                              child: Icon(
+                            Iconsax.home,
+                            color: Colors.white,
+                          )),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Text(
+                        "Homescreen",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      GestureDetector(
+                        onTap: setlockScreen,
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.5),
+                              borderRadius: BorderRadius.circular(15)),
+                          child: const Center(
+                              child: Icon(
+                            Iconsax.lock,
+                            color: Colors.white,
+                          )),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Text(
+                        "Lockscreen",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      GestureDetector(
+                        onTap: setBothScreen,
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.5),
+                              borderRadius: BorderRadius.circular(15)),
+                          child: const Center(
+                              child: Icon(
+                            Iconsax.devices_1,
+                            color: Colors.white,
+                          )),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Text(
+                        "Both",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          )),
+          ),
         ],
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Row(
-          children: [
-            Expanded(
-              child: InkWell(
-                onTap: setWallpaper,
-                child: Container(
-                  height: 60,
-                  color: dark ? Colors.black : Colors.white,
-                  child: Center(
-                      child: Text(
-                    'Set wallpaper',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(fontSize: 16, fontWeight: FontWeight.bold),
-                  )),
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Expanded(
-              child: InkWell(
-                onTap: setlockScreen,
-                child: Container(
-                  height: 60,
-                  color: dark ? Colors.black : Colors.white,
-                  child: Center(
-                      child: Text(
-                    'Set LockScreen',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(fontSize: 16, fontWeight: FontWeight.bold),
-                  )),
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Expanded(
-              child: InkWell(
-                onTap: setBothScreen,
-                child: Container(
-                  height: 60,
-                  color: dark ? Colors.black : Colors.white,
-                  child: Center(
-                      child: Text(
-                    'Set as Both',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(fontSize: 16, fontWeight: FontWeight.bold),
-                  )),
-                ),
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
