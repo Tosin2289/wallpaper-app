@@ -102,7 +102,7 @@ class _AllScreenState extends State<AllScreen> {
                         child: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
                             child: Image.network(
-                              images[index]['src']['small'],
+                              images[index]['src']["medium"],
                               fit: BoxFit.cover,
                             )),
                       ),
