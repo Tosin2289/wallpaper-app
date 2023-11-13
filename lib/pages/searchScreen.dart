@@ -1,35 +1,26 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:http/http.dart' as http;
-import 'package:wallpaper_app/pages/fullscreen.dart';
-import '../utils/headingtext.dart';
+import 'package:iconsax/iconsax.dart';
 
-class WallPaperPage extends StatefulWidget {
-  const WallPaperPage({
-    Key? key,
-    required this.text,
-  }) : super(key: key);
-  final String text;
+import '../utils/subheadingtext.dart';
+import 'fullscreen.dart';
+
+class SearchScreen extends StatefulWidget {
+  const SearchScreen({super.key});
 
   @override
-  State<WallPaperPage> createState() => _WallPaperPageState();
+  State<SearchScreen> createState() => _SearchScreenState();
 }
 
-class _WallPaperPageState extends State<WallPaperPage> {
-  @override
-  void initState() {
-    searchImages(widget.text);
-    super.initState();
-  }
-
+class _SearchScreenState extends State<SearchScreen> {
   List images = [];
-  void searchImages(text) async {
+  void searchImages(value) async {
     await http.get(
         Uri.parse(
-          "https://api.pexels.com/v1/search?query=$text&per_page=80",
+          "https://api.pexels.com/v1/search?query=$value&per_page=80",
         ),
         headers: {
           "Authorization":
@@ -44,34 +35,54 @@ class _WallPaperPageState extends State<WallPaperPage> {
 
   @override
   Widget build(BuildContext context) {
+    final dark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
-              HeadingText(
-                text: widget.text,
+              const SubHeadingText(
+                text: 'Search',
               ),
               const SizedBox(
                 height: 10,
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "80 wallpaper available",
-                  style: Theme.of(context).textTheme.bodyLarge,
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                child: Container(
+                  height: 60,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: dark ? Colors.grey.shade700 : Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                      child: TextField(
+                          onChanged: (value) {
+                            searchImages(value);
+                          },
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintStyle: TextStyle(color: Colors.grey.shade400),
+                              hintText: 'Find wallpaper...',
+                              suffixIcon: const Icon(Iconsax.search_normal))),
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               Expanded(
                   child: MasonryGridView.builder(
                 itemCount: images.length,
                 gridDelegate:
                     const SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
+                  crossAxisCount: 3,
                 ),
                 itemBuilder: (context, index) {
                   return Padding(

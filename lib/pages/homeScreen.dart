@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void fetchImages() async {
     await http.get(
         Uri.parse(
-          'https://api.pexels.com/v1/curated?per_page=30',
+          'https://api.pexels.com/v1/curated?per_page=50',
         ),
         headers: {
           "Authorization":
@@ -116,34 +116,28 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Expanded(
                     child: ListView.separated(
                       shrinkWrap: true,
-                      itemCount: 8,
+                      itemCount: images.length,
                       scrollDirection: Axis.horizontal,
                       separatorBuilder: (context, index) => const SizedBox(
                         width: 10,
                       ),
                       itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) {
-                                  return FullScreen(
-                                    imgurl: images[index]['src']['large2x'],
-                                  );
-                                },
-                              ));
-                            },
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: SizedBox(
-                                  height: 180,
-                                  child: Image.network(
-                                    images[index]['src']['tiny'],
-                                    fit: BoxFit.cover,
-                                  ),
-                                )),
-                          ),
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) {
+                                return FullScreen(
+                                  imgurl: images[index]['src']['large'],
+                                );
+                              },
+                            ));
+                          },
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.network(
+                                images[index]['src']['tiny'],
+                                fit: BoxFit.cover,
+                              )),
                         );
                       },
                     ),
