@@ -33,7 +33,7 @@ class _WallPaperPageState extends State<WallPaperPage> {
         ),
         headers: {
           "Authorization":
-              "7DCdXzXDu6jtm9sI9nJo1uPbYl4IpswkYstEHwsbJWoPoxuyfwbgGhP9"
+              "api key"
         }).then((value) {
       var result = jsonDecode(value.body);
       setState(() {
