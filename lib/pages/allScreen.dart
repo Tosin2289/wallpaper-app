@@ -22,7 +22,7 @@ class _AllScreenState extends State<AllScreen> {
         ),
         headers: {
           "Authorization":
-              "7DCdXzXDu6jtm9sI9nJo1uPbYl4IpswkYstEHwsbJWoPoxuyfwbgGhP9"
+              "api key"
         }).then((value) {
       var result = jsonDecode(value.body);
       setState(() {
@@ -48,7 +48,7 @@ class _AllScreenState extends State<AllScreen> {
         ),
         headers: {
           "Authorization":
-              "7DCdXzXDu6jtm9sI9nJo1uPbYl4IpswkYstEHwsbJWoPoxuyfwbgGhP9"
+              "api key"
         }).then((value) {
       Map result = jsonDecode(value.body);
       setState(() {
