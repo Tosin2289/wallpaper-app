@@ -12,7 +12,11 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  List pages = const [HomeScreen(), SearchScreen(), AllScreen()];
+  List pages = const [
+    HomeScreen(),
+    SearchScreen(),
+    AllScreen(),
+  ];
   int currentindex = 0;
   @override
   Widget build(BuildContext context) {
@@ -31,7 +35,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Iconsax.home), label: ''),
           BottomNavigationBarItem(icon: Icon(Iconsax.search_normal), label: ''),
-          BottomNavigationBarItem(icon: Icon(Iconsax.menu_board), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.dashboard), label: ''),
         ],
       ),
     );

@@ -20,6 +20,13 @@ class _FullScreenState extends State<FullScreen> {
     var file = await DefaultCacheManager().getSingleFile(widget.imgurl);
     bool result =
         await WallpaperManager.setWallpaperFromFile(file.path, location);
+    // ignore: use_build_context_synchronously
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        backgroundColor: Colors.grey.withOpacity(0.5),
+        content: const Text(
+          "Saved as Wallpaper",
+          style: TextStyle(color: Colors.white),
+        )));
   }
 
   void setlockScreen() async {
@@ -27,6 +34,13 @@ class _FullScreenState extends State<FullScreen> {
     var file = await DefaultCacheManager().getSingleFile(widget.imgurl);
     bool result =
         await WallpaperManager.setWallpaperFromFile(file.path, location);
+    // ignore: use_build_context_synchronously
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        backgroundColor: Colors.grey.withOpacity(0.5),
+        content: const Text(
+          "Saved as LockScreen",
+          style: TextStyle(color: Colors.white),
+        )));
   }
 
   void setBothScreen() async {
@@ -34,6 +48,13 @@ class _FullScreenState extends State<FullScreen> {
     var file = await DefaultCacheManager().getSingleFile(widget.imgurl);
     bool result =
         await WallpaperManager.setWallpaperFromFile(file.path, location);
+    // ignore: use_build_context_synchronously
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        backgroundColor: Colors.grey.withOpacity(0.5),
+        content: const Text(
+          "Saved as Both",
+          style: TextStyle(color: Colors.white),
+        )));
   }
 
   @override
@@ -48,7 +69,7 @@ class _FullScreenState extends State<FullScreen> {
                     image: NetworkImage(widget.imgurl), fit: BoxFit.cover)),
           ),
           Align(
-            alignment: Alignment.bottomCenter,
+            alignment: Alignment(0, 0.9),
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Row(

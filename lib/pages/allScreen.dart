@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
-import 'package:iconsax/iconsax.dart';
-
 import '../utils/subheadingtext.dart';
 import 'fullscreen.dart';
 
@@ -62,7 +59,6 @@ class _AllScreenState extends State<AllScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final dark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -70,11 +66,14 @@ class _AllScreenState extends State<AllScreen> {
             vertical: 10.0,
           ),
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(12.0),
             child: Column(
               children: [
-                const SubHeadingText(
-                  text: 'Wallpapers',
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  child: SubHeadingText(
+                    text: 'Wallpapers',
+                  ),
                 ),
                 const SizedBox(
                   height: 10,
@@ -112,9 +111,9 @@ class _AllScreenState extends State<AllScreen> {
                 InkWell(
                   onTap: loadmore,
                   child: Container(
-                    height: 60,
+                    height: 20,
                     width: double.infinity,
-                    color: dark ? Colors.black : Colors.white,
+                    color: Colors.transparent,
                     child: Center(
                         child: Text(
                       'Load More',

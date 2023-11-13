@@ -42,8 +42,11 @@ class _SearchScreenState extends State<SearchScreen> {
           padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
-              const SubHeadingText(
-                text: 'Search',
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                child: SubHeadingText(
+                  text: 'Search',
+                ),
               ),
               const SizedBox(
                 height: 10,

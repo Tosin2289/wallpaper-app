@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:http/http.dart' as http;
@@ -76,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Colors.transparent,
         ),
         body: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(12.0),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -107,7 +108,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                const SubHeadingText(text: "Best of the month"),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  child: SubHeadingText(text: "Best of the month"),
+                ),
                 const SizedBox(
                   height: 10,
                 ),
@@ -134,8 +138,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           },
                           child: ClipRRect(
                               borderRadius: BorderRadius.circular(10),
-                              child: Image.network(
-                                images[index]['src']['tiny'],
+                              child: CachedNetworkImage(
+                                imageUrl: images[index]['src']['tiny'],
                                 fit: BoxFit.cover,
                               )),
                         );
@@ -146,7 +150,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 25,
                 ),
-                const SubHeadingText(text: "Categories"),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  child: SubHeadingText(text: "Categories"),
+                ),
                 const SizedBox(
                   height: 10,
                 ),
