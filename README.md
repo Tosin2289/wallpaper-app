@@ -6,9 +6,12 @@ api - pexels
 design - dribble
 
 ## Preview
-![Screenshot_1699852748](https://github.com/Tosin2289/wallpaper-app/assets/66890167/31256b95-2ce6-41a7-97a9-32eab7dcb6f7)
-![Screenshot_1699852979](https://github.com/Tosin2289/wallpaper-app/assets/66890167/b99a8372-1002-43d4-bf0a-d95e2123c119)
-![Screenshot_1699852964](https://github.com/Tosin2289/wallpaper-app/assets/66890167/76520a67-6072-4033-98ce-f62c9c88c932)
-![Screenshot_1699852950](https://github.com/Tosin2289/wallpaper-app/assets/66890167/d2f88c66-14c1-4c3a-8770-b9031573985e)
-![Screenshot_1699852848](https://github.com/Tosin2289/wallpaper-app/assets/66890167/1153a0ed-da34-4ef1-974f-39a35df64a71)
-![Screenshot_1699852770](https://github.com/Tosin2289/wallpaper-app/assets/66890167/dac6bca8-bb41-4e8e-b248-f3142ef7bac2)
+<img src='https://github.com/Tosin2289/wallpaper-app/assets/66890167/4b0fba12-993c-412e-813d-e186cdc4dd30' width='200'>
+<img src='https://github.com/Tosin2289/wallpaper-app/assets/66890167/dd0869da-3af5-4152-9b6a-9cd134eb98fe' width='200'>
+<img src='https://github.com/Tosin2289/wallpaper-app/assets/66890167/bb468f7b-9e73-4b16-8c5e-3c4dfb9888ac' width='200'>
+<img src='https://github.com/Tosin2289/wallpaper-app/assets/66890167/701ddb61-4bb6-4904-8f14-7c9ae1b864ba' width='200'>
+<img src='https://github.com/Tosin2289/wallpaper-app/assets/66890167/b29896ad-387e-45b7-8441-3dd946a25f2e' width='200'>
+<img src='https://github.com/Tosin2289/wallpaper-app/assets/66890167/a983554e-a4cf-4dda-b6f4-04c0d13bea27' width='200'>
+
+
+
